@@ -1,5 +1,6 @@
 
-package com.mycompany.advinha;
+package com.mycompany.projetojogo_adivinha;
+import com.mycompany.advinha.Sorte;
 import java.util.Scanner;
 public class Jogo {
     Sorte sorte = new Sorte();
@@ -10,31 +11,7 @@ public class Jogo {
     int numeroSorteado;
     int tentativas;
     int jogosGanhos;
-    public void Comecar(){
-        System.out.println("Olá eu sou o dealer, você gostaria de jogar um jogo"
-                + " de advinhação de numeros comigo? \n Ele vai funcionar da "
-                + "seguinte maneira \n Você tem que tentar advinhar um numéro o"
-                + "mais rapido possivel e eu direi se ele é maior ou menor que"
-                + "o numero que você chutou. \n Vamos começar? \n 1 para Sim \n"
-                + "2 para Não. \n"
-                + "3 para ver Estatisticas.");
-        setEscolha()
-        switch(getEscolha()){
-            case 1:
-                selecionarDificuldade();
-                continuarJogo();
-            case 2:
-                fimDeJogo();
-            case 3:
-                estatisticas();
-        }
-    }
-    public void selecionarDificuldade(){
-        System.out.println("Ok, hora de selecionar a dificuldade \n 1 para fácil"
-                + ". Advinhe um numero de 1 a 10"
-                + "\n 2 para normal. Advinhe um numero de 1 a 50."
-                + " \n 3 para dificil. Adivinhe um numero de 1 a 100.");
-        escolha = sc.nextInt();
+    public void selecionarDificuldade(int escolha){
         switch(getEscolha()){
             case 1:
                 setDificuldade(1);
@@ -45,14 +22,9 @@ public class Jogo {
             case 3:
                 setDificuldade(3);
                 break;
-            default:
-                System.out.println("Temos um engraçadinho aqui não é? Digite "
-                + "corretamente.");
-                selecionarDificuldade();
-                break;
         }
+    }
     public void continuarJogo(){
-        System.out.println("Que o jogo comece!");
         switch(getDificuldade()){
             case 1:
                 setNumeroSorteado(sorte.criarNumeroFacil());
@@ -61,7 +33,7 @@ public class Jogo {
             case 3:
                 setNumeroSorteado(sorte.criarNumeroDificil());
         }
-        ganhouOjogo();
+        
     }
     public void chute(){
         this.tentativas += 1;

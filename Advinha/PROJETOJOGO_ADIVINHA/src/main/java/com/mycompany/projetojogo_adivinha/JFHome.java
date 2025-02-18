@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  * @author 202322040008
  */
 public class JFHome extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form JFHome
      */
@@ -97,6 +97,7 @@ public class JFHome extends javax.swing.JFrame {
         JFJogo jogo = new JFJogo();
         jogo.setVisible(true);
         dispose();
+        
     }//GEN-LAST:event_ComecarJogo
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -105,6 +106,7 @@ public class JFHome extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

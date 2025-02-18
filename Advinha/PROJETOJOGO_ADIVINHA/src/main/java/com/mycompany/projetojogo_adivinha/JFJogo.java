@@ -9,6 +9,7 @@ package com.mycompany.projetojogo_adivinha;
  * @author 202322040008
  */
 public class JFJogo extends javax.swing.JFrame {
+    Jogo jogo = new Jogo();
 
     /**
      * Creates new form JFJogo
@@ -16,6 +17,7 @@ public class JFJogo extends javax.swing.JFrame {
     public JFJogo() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,25 +33,48 @@ public class JFJogo extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                abrir(evt);
+            }
+        });
 
         dificuldades.add(jRadioButton1);
         jRadioButton1.setText("Fácil");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                facil(evt);
             }
         });
 
         dificuldades.add(jRadioButton2);
         jRadioButton2.setText("Médio");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                medio(evt);
+            }
+        });
 
         dificuldades.add(jRadioButton3);
         jRadioButton3.setText("Difícil");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dificil(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Escolha a dificuldade:");
+
+        jButton1.setText("Continuar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                continuar(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -58,6 +83,7 @@ public class JFJogo extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(93, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
                     .addComponent(jRadioButton3)
                     .addComponent(jRadioButton2)
                     .addComponent(jRadioButton1)
@@ -75,15 +101,40 @@ public class JFJogo extends javax.swing.JFrame {
                 .addComponent(jRadioButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButton3)
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void facil(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_facil
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+        jogo.selecionarDificuldade(1);
+        
+    }//GEN-LAST:event_facil
+
+    private void medio(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medio
+        // TODO add your handling code here:
+        jogo.selecionarDificuldade(2);
+        
+    }//GEN-LAST:event_medio
+
+    private void dificil(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dificil
+        // TODO add your handling code here:
+        jogo.selecionarDificuldade(3);
+        
+    }//GEN-LAST:event_dificil
+
+    private void abrir(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_abrir
+        // TODO add your handling code here:
+    }//GEN-LAST:event_abrir
+
+    private void continuar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_continuar
+        // TODO add your handling code here:
+        jogo.continuarJogo();
+    }//GEN-LAST:event_continuar
 
     /**
      * @param args the command line arguments
@@ -122,6 +173,7 @@ public class JFJogo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup dificuldades;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;

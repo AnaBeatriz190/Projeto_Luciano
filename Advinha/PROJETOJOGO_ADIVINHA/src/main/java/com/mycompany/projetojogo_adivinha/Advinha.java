@@ -1,5 +1,5 @@
 
-package com.mycompany.advinha;
+package com.mycompany.projetojogo_adivinha;
 
 
 public class Advinha {

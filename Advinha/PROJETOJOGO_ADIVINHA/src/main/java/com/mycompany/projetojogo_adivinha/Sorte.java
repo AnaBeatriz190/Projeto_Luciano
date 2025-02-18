@@ -1,4 +1,4 @@
-package com.mycompany.advinha;
+package com.mycompany.projetojogo_adivinha;
 import java.util.Random;
 
 public class Sorte {
